@@ -17,7 +17,13 @@ return new class extends Migration
             $table->id();
             $table->integer('room_id');
             $table->string('client_card');
+            $table->date('reservation_date');
+            $table->float('price');
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')->references('id')->on('clients');
+
             $table->timestamps();
+
         });
     }
 
