@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use GuzzleHttp\RetryMiddleware;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -86,7 +87,7 @@ class ClientController extends Controller
     {
         $client = Client::find($request->id);
         $client->update($request->all());
-        return $client;
+        return redirect('clients');
     }
 
     /**
