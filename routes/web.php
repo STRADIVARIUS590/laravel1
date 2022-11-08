@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ReservationController;
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 /*
@@ -18,16 +19,23 @@ use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
+    
 });
 
-/* Route::get('/saludo', function () {
-    echo 'hola';
-});
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');    
+
+Route::get('/prueba', function(){
+    return "hola";
+
+})->middleware('auth');
 
 Route::get('/saludo/{name}', function ($name) {
     return 'hola '.$name;
 });
-
+/*
 Route::get('/suma/{num1}/{num2}/{num3?}', function ($num1, $num2, $num3 = 0){
     return $num1 + $num2 + $num3;
 })->where(['num1' => '[0-9]+', 'num2' =>  '[0-9]+']);
