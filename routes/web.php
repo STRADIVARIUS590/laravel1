@@ -19,13 +19,17 @@ use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
-    
+});
+
+
+Route::get('/home', function() {
+    return view('home2');
 });
 
 
 Route::get('/login', function () {
     return view('login');
-})->name('login');    
+})->name('login');
 
 Route::get('/prueba', function(){
     return "hola";
